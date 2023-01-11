@@ -11,6 +11,7 @@ const cartRoute = require("./routes/cartRoute");
 const orderRoute = require("./routes/orderRoute");
 const stripeRoute = require("./routes/stripe");
 const cors = require("cors");
+const path = require("path");
 
 // config the env file --------------------------------------
 dotenv.config();
@@ -34,6 +35,7 @@ mongoose
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 // view engine setup---------------------------------------------------------
 // app.set('views',path.join0(__dirname,'views'));
