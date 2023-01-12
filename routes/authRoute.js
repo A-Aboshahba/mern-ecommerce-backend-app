@@ -18,7 +18,9 @@ router.post("/register", async (req, res) => {
     // new user
     const savedUser = await newUser.save();
     //new user
-    const newCart = new Cart({ userId: savedUser._id });
+    const newCart = new Cart({
+      userId: savedUser._id,
+    });
     const savedCart = await newCart.save();
     const finalUser = await User.findByIdAndUpdate(
       savedUser._id,
